@@ -5,6 +5,7 @@
 #include "bg.h"
 #include "data.h"
 #include "decompress.h"
+#include "event_data.h"
 #include "evolution_scene.h"
 #include "evolution_graphics.h"
 #include "gpu_regs.h"
@@ -197,7 +198,7 @@ static void Task_BeginEvolutionScene(u8 taskId)
 
 void BeginEvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u8 partyId)
 {
-    if (!P_NO_EVOLUTION)
+    if (P_FLAG_NO_EVOLUTION == 0 || !FlagGet(P_FLAG_NO_EVOLUTION))
     {
         u8 taskId = CreateTask(Task_BeginEvolutionScene, 0);
         gTasks[taskId].tState = 0;

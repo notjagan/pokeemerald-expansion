@@ -19,7 +19,6 @@
                                                 // GEN_9: SV For species present in those games. Otherwise use GEN_8.
 
 // Evolution settings
-#define P_NO_EVOLUTION               TRUE  // Disables evolution
 #define P_FRIENDSHIP_EVO_THRESHOLD   GEN_LATEST  // Since Gen 8, Pokémon that evolve by friendship evolve at or above 160 friendship instead of 220.
 
 // Breeding settings
@@ -66,6 +65,7 @@
 // Eg: Replace with FLAG_UNUSED_0x264 so you can use that flag to toggle the feature.
 #define P_FLAG_FORCE_SHINY      0     // If this flag is set, all wild and gift Pokémon will forced into being Shiny.
 #define P_FLAG_FORCE_NO_SHINY   0     // If this flag is set, all wild and gift Pokémon will forced into NOT being Shiny.
+#define P_FLAG_NO_EVOLUTION     FLAG_NO_EVOLUTION  // Disables evolution
 
 // Go here if you want to disable specific families of Pokémon.
 #include "config/species_enabled.h"
