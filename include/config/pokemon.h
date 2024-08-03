@@ -19,6 +19,7 @@
                                                 // GEN_9: SV For species present in those games. Otherwise use GEN_8.
 
 // Evolution settings
+#define P_NO_EVOLUTION               TRUE  // Disables evolution
 #define P_FRIENDSHIP_EVO_THRESHOLD   GEN_LATEST  // Since Gen 8, Pokémon that evolve by friendship evolve at or above 160 friendship instead of 220.
 
 // Breeding settings

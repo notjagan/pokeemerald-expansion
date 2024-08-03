@@ -197,12 +197,19 @@ static void Task_BeginEvolutionScene(u8 taskId)
 
 void BeginEvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u8 partyId)
 {
-    u8 taskId = CreateTask(Task_BeginEvolutionScene, 0);
-    gTasks[taskId].tState = 0;
-    gTasks[taskId].tPostEvoSpecies = postEvoSpecies;
-    gTasks[taskId].tCanStop = canStopEvo;
-    gTasks[taskId].tPartyId = partyId;
-    SetMainCallback2(CB2_BeginEvolutionScene);
+    if (!P_NO_EVOLUTION)
+    {
+        u8 taskId = CreateTask(Task_BeginEvolutionScene, 0);
+        gTasks[taskId].tState = 0;
+        gTasks[taskId].tPostEvoSpecies = postEvoSpecies;
+        gTasks[taskId].tCanStop = canStopEvo;
+        gTasks[taskId].tPartyId = partyId;
+        SetMainCallback2(CB2_BeginEvolutionScene);
+    }
+    else
+    {
+        SetMainCallback2(gCB2_AfterEvolution);
+    }
 }
 
 void EvolutionScene(struct Pokemon *mon, u16 postEvoSpecies, bool8 canStopEvo, u8 partyId)
